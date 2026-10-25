@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raina Vashishth — Creative Developer & Data Analyst Portfolio</title>
+  <meta name="description" content="Portfolio of Raina Vashishth - Aspiring Data Analyst, AI/ML Developer & Creative Co-Lead at CSI Technical Society, SRM University.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+  <!-- Google Fonts: Bebas Neue, Caveat (script), Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark text-light antialiased">
+
+  <!-- Ambient Background Glows -->
+  <div class="ambient-glow glow-top-right"></div>
+  <div class="ambient-glow glow-mid-left"></div>
+  <div class="ambient-glow glow-bottom-right"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar-wrapper">
+    <nav class="navbar container">
+      <a href="#hero" class="brand-logo">
+        <span class="logo-mark">RV</span>
+        <span class="logo-text">Raina<span class="text-purple">.dev</span></span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link">What I Do</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#toolkit" class="nav-link">Toolkit</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="status-pill status-pill-sm desktop-only">
+          <span class="pulse-dot"></span>
+          <span>AVAILABLE FOR PROJECTS</span>
+        </div>
+        <a href="#contact" class="btn btn-outline btn-sm">Get In Touch</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        
+        <!-- Left: Huge Typography & Identity -->
+        <div class="hero-content">
+          <div class="hero-tagline-wrapper">
+            <h1 class="hero-title">
+              <span class="hero-title-line title-creative">CREATIVE</span>
+              <span class="hero-title-line title-developer" id="dynamicRole">DATA ANALYST</span>
+            </h1>
+          </div>
+
+          <div class="hero-bio">
+            <h2 class="hero-subtitle">
+              I DESIGN & CODE DIGITAL EXPERIENCES THAT INSPIRE.
+            </h2>
+            <p class="hero-description">
+              Aspiring Data Analyst, AI/ML enthusiast & Creative Co-Lead bridging analytical precision with expressive user interfaces and data-driven insights.
+            </p>
+            <div class="hero-code-tag">
+              <code>&lt;/ CODE . DATA . DEPLOY /&gt;</code>
+            </div>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-purple">
+                <span>View Featured Projects</span>
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+              <button class="btn btn-glass" id="openResumeBtn">
+                <i data-lucide="file-text"></i>
+                <span>View Resume</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Portrait Artwork & Rotating Stamp -->
+        <div class="hero-visual">
+          <div class="portrait-container">
+            <!-- Background Radial Glow -->
+            <div class="portrait-halo"></div>
+
+            <!-- Hero Portrait -->
+            <div class="portrait-frame">
+              <img src="assets/hero-portrait.png" alt="Raina Vashishth - Creative Developer & Data Analyst" class="portrait-img" id="heroPortraitImg">
+            </div>
+
+            <!-- Status Badge Pill -->
+            <div class="status-badge-overlay">
+              <span class="pulse-dot"></span>
+              <span>AVAILABLE FOR PROJECTS</span>
+            </div>
+
+            <!-- Rotating Circular Stamp / Badge -->
+            <div class="rotating-stamp-wrapper">
+              <div class="rotating-stamp">
+                <svg viewBox="0 0 200 200" class="circular-text-svg">
+                  <path id="circlePath" d="M 100, 100 m -72, 0 a 72,72 0 1,1 144,0 a 72,72 0 1,1 -144,0" fill="none" />
+                  <text>
+                    <textPath href="#circlePath" class="circular-text">
+                      • CREATIVE DATA ANALYST • CODE • DATA • DEPLOY
+                    </textPath>
+                  </text>
+                </svg>
+                <div class="stamp-center">
+                  <span class="stamp-monogram">RV</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Stats Bar Strip -->
+      <div class="container">
+        <div class="stats-strip">
+          <div class="stat-item">
+            <div class="stat-number"><span class="counter" data-target="8.85" data-decimal="2">0</span></div>
+            <div class="stat-label">CGPA (SRM CHENNAI)</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number"><span class="counter" data-target="10">0</span>+</div>
+            <div class="stat-label">PROJECTS DELIVERED</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number"><span class="counter" data-target="200">0</span>+</div>
+            <div class="stat-label">HACKATHON ATTENDEES LED</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number"><span class="counter" data-target="12">0</span>+</div>
+            <div class="stat-label">TECHNOLOGIES & TOOLS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT I DO SECTION -->
+    <section class="section what-i-do-section" id="about">
+      <div class="container">
+        <div class="what-i-do-grid">
+          
+          <!-- Left Column: Title & Philosophy -->
+          <div class="section-intro">
+            <div class="section-tag">
+              <span class="sparkle-icon">✦</span> WHAT I DO
+            </div>
+            <h2 class="section-title">
+              WHAT<br>I DO <span class="text-purple sparkle-inline">✦</span>
+            </h2>
+            <p class="section-lead">
+              I analyze, build, and ship modern data solutions and web applications that are fast, responsive, and user-focused.
+            </p>
+            <div class="creative-quote-card">
+              <p>"Turning complex numbers and raw inputs into elegant stories, interactive models, and memorable visuals."</p>
+              <div class="quote-author">— Raina Vashishth</div>
+            </div>
+          </div>
+
+          <!-- Right Column: 4 Service Cards -->
+          <div class="cards-grid">
+            <!-- Card 01 -->
+            <div class="service-card" data-tilt>
+              <div class="service-card-top">
+                <div class="service-icon-box">
+                  <i data-lucide="layout-template"></i>
+                </div>
+                <span class="service-number">01</span>
+              </div>
+              <h3 class="service-title">DATA ANALYTICS & BI</h3>
+              <p class="service-description">
+                Transforming raw datasets into compelling business stories, KPI dashboards, and actionable metrics using SQL, Excel & Power BI.
+              </p>
+              <div class="card-glow-edge"></div>
+            </div>
+
+            <!-- Card 02 -->
+            <div class="service-card" data-tilt>
+              <div class="service-card-top">
+                <div class="service-icon-box">
+                  <i data-lucide="code-2"></i>
+                </div>
+                <span class="service-number">02</span>
+              </div>
+              <h3 class="service-title">MACHINE LEARNING & AI</h3>
+              <p class="service-description">
+                Predictive modeling, NLP sentiment & mood classification pipelines with Python, Pandas, NumPy, and Scikit-Learn.
+              </p>
+              <div class="card-glow-edge"></div>
+            </div>
+
+            <!-- Card 03 -->
+            <div class="service-card" data-tilt>
+              <div class="service-card-top">
+                <div class="service-icon-box">
+                  <i data-lucide="palette"></i>
+                </div>
+                <span class="service-number">03</span>
+              </div>
+              <h3 class="service-title">UI/UX & WEB DESIGN</h3>
+              <p class="service-description">
+                Pixel-perfect designs that combine creativity with strategy. Designing mood-boards in Figma and responsive frontend experiences in React.
+              </p>
+              <div class="card-glow-edge"></div>
+            </div>
+
+            <!-- Card 04 -->
+            <div class="service-card" data-tilt>
+              <div class="service-card-top">
+                <div class="service-icon-box">
+                  <i data-lucide="zap"></i>
+                </div>
+                <span class="service-number">04</span>
+              </div>
+              <h3 class="service-title">CREATIVE DIRECTION</h3>
+              <p class="service-description">
+                Leading creative teams, Canva designs, hackathon branding, and coordinating on-ground execution for national-level tech events.
+              </p>
+              <div class="card-glow-edge"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS SECTION -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        
+        <div class="section-header-flex">
+          <div>
+            <div class="section-tag"><span class="sparkle-icon">✦</span> PORTFOLIO HIGHLIGHTS</div>
+            <h2 class="section-title">FEATURED PROJECTS</h2>
+          </div>
+          <a href="https://github.com/RainaVashishth" target="_blank" rel="noopener noreferrer" class="link-arrow">
+            <span>VIEW ALL PROJECTS</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="projects-grid">
+          
+          <!-- Project 01: Moodify -->
+          <div class="project-card" data-project="moodify">
+            <div class="project-card-header">
+              <span class="project-index">01</span>
+              <span class="project-year-badge">2024 • AI / Web</span>
+            </div>
+            
+            <div class="project-preview-box">
+              <img src="assets/project-moodify.png" alt="Moodify - AI Music Recommendation" class="project-img">
+              <div class="project-overlay">
+                <button class="btn-overlay-inspect" onclick="openProjectModal('moodify')">
+                  <i data-lucide="maximize-2"></i> View Case Study
+                </button>
+              </div>
+            </div>
+
+            <div class="project-details">
+              <div class="project-meta-row">
+                <h3 class="project-name">MOODIFY</h3>
+                <button class="project-arrow-btn" onclick="openProjectModal('moodify')" aria-label="Open project details">
+                  <i data-lucide="arrow-up-right"></i>
+                </button>
+              </div>
+              <p class="project-category">AI-Powered Music Recommendation Platform</p>
+              <p class="project-summary">
+                Integrated Spotify Web API to process listening history and built an NLP mood classifier that converts user free-text into tailored playlists.
+              </p>
+              
+              <div class="project-tags">
+                <span class="tech-tag">NLP</span>
+                <span class="tech-tag">Spotify API</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Figma</span>
+                <span class="tech-tag">Python</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 02: Weather & Flight Delay -->
+          <div class="project-card" data-project="flight">
+            <div class="project-card-header">
+              <span class="project-index">02</span>
+              <span class="project-year-badge">2024 • ML & Data</span>
+            </div>
+            
+            <div class="project-preview-box">
+              <img src="assets/project-flight.png" alt="Weather & Flight Delay Prediction" class="project-img">
+              <div class="project-overlay">
+                <button class="btn-overlay-inspect" onclick="openProjectModal('flight')">
+                  <i data-lucide="maximize-2"></i> View Case Study
+                </button>
+              </div>
+            </div>
+
+            <div class="project-details">
+              <div class="project-meta-row">
+                <h3 class="project-name">FLIGHT DELAY PREDICTION</h3>
+                <button class="project-arrow-btn" onclick="openProjectModal('flight')" aria-label="Open project details">
+                  <i data-lucide="arrow-up-right"></i>
+                </button>
+              </div>
+              <p class="project-category">Data Analytics & Machine Learning</p>
+              <p class="project-summary">
+                Analyzed weather datasets (visibility, precipitation, wind speed) to engineer delay indicators and built a predictive classification model.
+              </p>
+              
+              <div class="project-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">NumPy</span>
+                <span class="tech-tag">Matplotlib</span>
+                <span class="tech-tag">Scikit-Learn</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 03: Sales Analytics Dashboard -->
+          <div class="project-card" data-project="sales">
+            <div class="project-card-header">
+              <span class="project-index">03</span>
+              <span class="project-year-badge">2024 • Power BI & SQL</span>
+            </div>
+            
+            <div class="project-preview-box">
+              <img src="assets/project-sales.png" alt="Sales Analytics Dashboard" class="project-img">
+              <div class="project-overlay">
+                <button class="btn-overlay-inspect" onclick="openProjectModal('sales')">
+                  <i data-lucide="maximize-2"></i> View Case Study
+                </button>
+              </div>
+            </div>
+
+            <div class="project-details">
+              <div class="project-meta-row">
+                <h3 class="project-name">SALES ANALYTICS DASHBOARD</h3>
+                <button class="project-arrow-btn" onclick="openProjectModal('sales')" aria-label="Open project details">
+                  <i data-lucide="arrow-up-right"></i>
+                </button>
+              </div>
+              <p class="project-category">Business Intelligence & Data Visualization</p>
+              <p class="project-summary">
+                Built an interactive Power BI dashboard tracking revenue trends, regional performance, and customer purchasing patterns with dynamic KPI drill-downs.
+              </p>
+              
+              <div class="project-tags">
+                <span class="tech-tag">Power BI</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">Excel</span>
+                <span class="tech-tag">KPI Cards</span>
+                <span class="tech-tag">Data Modeling</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TOOLKIT, WORK PROCESS & CALL-TO-ACTION GRID -->
+    <section class="section split-grid-section" id="toolkit">
+      <div class="container">
+        <div class="three-col-layout">
+          
+          <!-- Column 1: MY TOOLKIT -->
+          <div class="toolkit-panel">
+            <div class="panel-header">
+              <h2 class="panel-title">MY TOOLKIT</h2>
+              <span class="sparkle-icon">✦</span>
+            </div>
+            <p class="panel-subtitle">Languages, libraries & tools I use to bring ideas to life.</p>
+
+            <div class="tools-grid">
+              <div class="tool-badge" title="Python">
+                <span class="tool-icon">🐍</span>
+                <span class="tool-name">Python</span>
+              </div>
+              <div class="tool-badge" title="SQL / MySQL / SQLite">
+                <span class="tool-icon">🗄️</span>
+                <span class="tool-name">SQL</span>
+              </div>
+              <div class="tool-badge" title="C++">
+                <span class="tool-icon">⚡</span>
+                <span class="tool-name">C++</span>
+              </div>
+              <div class="tool-badge" title="Pandas">
+                <span class="tool-icon">🐼</span>
+                <span class="tool-name">Pandas</span>
+              </div>
+              <div class="tool-badge" title="NumPy">
+                <span class="tool-icon">🔢</span>
+                <span class="tool-name">NumPy</span>
+              </div>
+              <div class="tool-badge" title="Matplotlib">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Matplotlib</span>
+              </div>
+              <div class="tool-badge" title="Power BI">
+                <span class="tool-icon">📈</span>
+                <span class="tool-name">Power BI</span>
+              </div>
+              <div class="tool-badge" title="React.js">
+                <span class="tool-icon">⚛️</span>
+                <span class="tool-name">React</span>
+              </div>
+              <div class="tool-badge" title="HTML5 & CSS3">
+                <span class="tool-icon">🌐</span>
+                <span class="tool-name">HTML/CSS</span>
+              </div>
+              <div class="tool-badge" title="Git & GitHub">
+                <span class="tool-icon">🐙</span>
+                <span class="tool-name">Git & GitHub</span>
+              </div>
+              <div class="tool-badge" title="VS Code">
+                <span class="tool-icon">💻</span>
+                <span class="tool-name">VS Code</span>
+              </div>
+              <div class="tool-badge" title="Canva & Figma">
+                <span class="tool-icon">🎨</span>
+                <span class="tool-name">Canva / Figma</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: WORK PROCESS -->
+          <div class="process-panel">
+            <div class="panel-header">
+              <h2 class="panel-title">WORK PROCESS</h2>
+              <span class="sparkle-icon">✦</span>
+            </div>
+            <p class="panel-subtitle">Methodical execution from raw problem to deployed insight.</p>
+
+            <div class="process-timeline">
+              <!-- Step 01 -->
+              <div class="process-step">
+                <div class="step-badge">01</div>
+                <div class="step-content">
+                  <h4 class="step-heading">DISCOVER</h4>
+                  <p class="step-desc">Understanding project objectives, data schemas, audience needs, and KPI targets.</p>
+                </div>
+              </div>
+              <!-- Step 02 -->
+              <div class="process-step">
+                <div class="step-badge">02</div>
+                <div class="step-content">
+                  <h4 class="step-heading">CLEAN & DESIGN</h4>
+                  <p class="step-desc">Rigorous data cleaning, EDA, feature engineering, and crafting UI wireframes.</p>
+                </div>
+              </div>
+              <!-- Step 03 -->
+              <div class="process-step">
+                <div class="step-badge">03</div>
+                <div class="step-content">
+                  <h4 class="step-heading">DEVELOP & MODEL</h4>
+                  <p class="step-desc">Building scalable machine learning pipelines, interactive dashboards, or React interfaces.</p>
+                </div>
+              </div>
+              <!-- Step 04 -->
+              <div class="process-step">
+                <div class="step-badge">04</div>
+                <div class="step-content">
+                  <h4 class="step-heading">DELIVER & REFINE</h4>
+                  <p class="step-desc">Validating accuracy, user testing, performance optimization, and stakeholder hand-off.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 3: PURPLE CALL TO ACTION CARD -->
+          <div class="cta-banner-card">
+            <div class="cta-inner">
+              <div class="cta-sparkle">✦</div>
+              <h2 class="cta-headline">
+                LET'S BUILD<br>SOMETHING<br>AMAZING<br>TOGETHER.
+              </h2>
+              <p class="cta-subtext">
+                I'm open to new opportunities, data analyst / AI roles, and exciting collaborations.
+              </p>
+              <a href="#contact" class="btn btn-dark-pill">
+                <span>GET IN TOUCH</span>
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP, EXPERIENCE & EDUCATION -->
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        
+        <div class="two-col-grid">
+          <!-- Experience & Leadership -->
+          <div class="glass-card p-xl">
+            <div class="section-tag"><span class="sparkle-icon">✦</span> LEADERSHIP & EXPERIENCE</div>
+            <h3 class="card-heading-lg">CAMPUS IMPACT & ROLES</h3>
+
+            <div class="timeline-list">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                  <h4 class="role-title">Creative Co-Lead</h4>
+                  <span class="role-date">Dec 2025 – Present</span>
+                </div>
+                <div class="role-org">CSI Technical Society</div>
+                <ul class="role-bullets">
+                  <li>Lead the creative team and coordinate design-related activities for the technical society.</li>
+                  <li>Design posters and promotional creatives for college events using Canva.</li>
+                  <li>Contribute to end-to-end planning and execution of society events and tech initiatives.</li>
+                </ul>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                  <h4 class="role-title">Core Team Member</h4>
+                  <span class="role-date">2026</span>
+                </div>
+                <div class="role-org">Techstasy National-Level Hackathon</div>
+                <ul class="role-bullets">
+                  <li>Organized a national-level hackathon hosting ~200 participants with high engagement.</li>
+                  <li>Spearheaded promotional poster creation, event branding, and social collateral.</li>
+                  <li>Supported seamless on-ground coordination and volunteer management.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education & Certifications -->
+          <div class="glass-card p-xl" id="education">
+            <div class="section-tag"><span class="sparkle-icon">✦</span> ACADEMICS & RECOGNITION</div>
+            <h3 class="card-heading-lg">EDUCATION & HONORS</h3>
+
+            <div class="timeline-list">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                  <h4 class="role-title">B.Tech — CSE (Data Science)</h4>
+                  <span class="role-date">2024 – 2028</span>
+                </div>
+                <div class="role-org">SRM Institute of Science and Technology, Chennai</div>
+                <div class="cgpa-pill">
+                  <i data-lucide="award"></i> Current CGPA: <strong>8.85</strong> (3rd Year, 5th Sem)
+                </div>
+                <p class="academic-sub">Class XII & X: CBSE, St. Andrews Scots Sr. Sec. School, Delhi</p>
+              </div>
+
+              <!-- Certifications & Extras -->
+              <div class="mini-achievements-box">
+                <h5 class="mini-title"><i data-lucide="check-circle-2"></i> Certifications</h5>
+                <div class="cert-tags">
+                  <span class="cert-pill">Elements of AI</span>
+                  <span class="cert-pill">DSA in C++ — Udemy</span>
+                </div>
+
+                <h5 class="mini-title mt-md"><i data-lucide="globe"></i> Languages</h5>
+                <p class="lang-text">English (Fluent) • Hindi (Fluent) • Japanese (N5)</p>
+
+                <h5 class="mini-title mt-md"><i data-lucide="sparkles"></i> Achievements & Interests</h5>
+                <p class="lang-text">2nd Runner-Up — Painting Competition • Dancing • Creative Arts</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION ("LET'S CONNECT") -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        
+        <!-- Center Avatar & Header -->
+        <div class="contact-header-center">
+          <div class="contact-avatar-wrapper">
+            <div class="avatar-halo"></div>
+            <img src="assets/avatar-circle.png" alt="Raina Vashishth" class="contact-avatar-img">
+            <div class="avatar-online-dot" title="Available for opportunities"></div>
+          </div>
+          <div class="section-tag justify-center"><span class="sparkle-icon">✦</span> GET IN TOUCH</div>
+          <h2 class="contact-main-title">LET'S CONNECT</h2>
+          <p class="contact-subtext">
+            Have a project in mind, an opportunity to discuss, or just want to talk about data science and design?
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: Contact Details -->
+          <div class="contact-info-card">
+            <h3 class="info-title">Contact Channels</h3>
+            
+            <div class="info-item" onclick="copyEmailToClipboard()">
+              <div class="info-icon"><i data-lucide="mail"></i></div>
+              <div class="info-content">
+                <div class="info-label">Direct Email (Click to Copy)</div>
+                <div class="info-val text-purple" id="emailVal">rainavash92@gmail.com</div>
+              </div>
+              <button class="copy-pill" id="copyEmailBtn" aria-label="Copy Email">
+                <i data-lucide="copy"></i>
+                <span id="copyBtnText">Copy</span>
+              </button>
+            </div>
+
+            <a href="https://linkedin.com/in/rainavashishth" target="_blank" rel="noopener noreferrer" class="info-item">
+              <div class="info-icon"><i data-lucide="linkedin"></i></div>
+              <div class="info-content">
+                <div class="info-label">LinkedIn Profile</div>
+                <div class="info-val">linkedin.com/in/rainavashishth</div>
+              </div>
+              <i data-lucide="external-link" class="info-ext"></i>
+            </a>
+
+            <a href="https://github.com/RainaVashishth" target="_blank" rel="noopener noreferrer" class="info-item">
+              <div class="info-icon"><i data-lucide="github"></i></div>
+              <div class="info-content">
+                <div class="info-label">GitHub Portfolio</div>
+                <div class="info-val">github.com/RainaVashishth</div>
+              </div>
+              <i data-lucide="external-link" class="info-ext"></i>
+            </a>
+
+            <div class="info-item">
+              <div class="info-icon"><i data-lucide="map-pin"></i></div>
+              <div class="info-content">
+                <div class="info-label">Location Base</div>
+                <div class="info-val">Delhi & SRM University Chennai, India</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Message Form -->
+          <div class="contact-form-card">
+            <h3 class="info-title">Send a Quick Message</h3>
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="senderName">Your Name</label>
+                  <input type="text" id="senderName" class="form-input" placeholder="e.g. Alex Smith" required>
+                </div>
+                <div class="form-group">
+                  <label for="senderEmail">Your Email</label>
+                  <input type="email" id="senderEmail" class="form-input" placeholder="alex@example.com" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="msgSubject">Subject</label>
+                <input type="text" id="msgSubject" class="form-input" placeholder="Collaboration / Job Opportunity / Project" required>
+              </div>
+              <div class="form-group">
+                <label for="msgContent">Message</label>
+                <textarea id="msgContent" rows="4" class="form-input" placeholder="Hi Raina, I'd love to connect regarding..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-purple btn-full">
+                <span>Send Message</span>
+                <i data-lucide="send"></i>
+              </button>
+            </form>
+            <div id="formFeedback" class="form-feedback hidden"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <span class="logo-mark">RV</span>
+        <span class="footer-copy">© <span id="currentYear"></span> Raina Vashishth. Designed & Coded with passion.</span>
+      </div>
+      <div class="footer-right">
+        <a href="#hero" class="back-to-top" aria-label="Back to top">
+          <span>Back to Top</span>
+          <i data-lucide="arrow-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT DETAILS MODAL -->
+  <div class="modal-backdrop" id="projectModal" onclick="closeProjectModal(event)">
+    <div class="modal-dialog" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeProjectModalDirect()" aria-label="Close modal">
+        <i data-lucide="x"></i>
+      </button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- RESUME PREVIEW MODAL -->
+  <div class="modal-backdrop" id="resumeModal" onclick="closeResumeModal(event)">
+    <div class="modal-dialog resume-modal-dialog" onclick="event.stopPropagation()">
+      <div class="modal-header-row">
+        <h3>Resume Preview — Raina Vashishth</h3>
+        <div class="modal-actions-right">
+          <a href="resume.html" target="_blank" class="btn btn-sm btn-outline"><i data-lucide="external-link"></i> Full Page View</a>
+          <button class="btn btn-sm btn-purple" onclick="window.print()"><i data-lucide="printer"></i> Print / Save PDF</button>
+          <button class="modal-close-btn-inline" onclick="closeResumeModalDirect()"><i data-lucide="x"></i></button>
+        </div>
+      </div>
+      <div class="resume-preview-sheet">
+        <div class="resume-sheet-header">
+          <h2>RAINA VASHISHTH</h2>
+          <div class="resume-sheet-subtitle">Aspiring Data Analyst · Data Science & AI/ML</div>
+          <div class="resume-sheet-contacts">
+            rainavash92@gmail.com | linkedin.com/in/rainavashishth | github.com/RainaVashishth | Delhi & Chennai
+          </div>
+        </div>
+        <hr class="resume-divider">
+        <div class="resume-sheet-section">
+          <h4>PROFESSIONAL SUMMARY</h4>
+          <p>Aspiring Data Analyst and Data Science/AI-ML professional with hands-on experience in Python, SQL, Pandas, NumPy, and data visualization using Matplotlib. Strong foundation in programming and data handling, with leadership experience as Creative Co-Lead at the CSI Technical Society. Creative, collaborative, and problem-solving oriented, with experience leading a creative team and contributing to the organization of a national-level hackathon.</p>
+        </div>
+        <div class="resume-sheet-section">
+          <h4>KEY PROJECTS</h4>
+          <div class="resume-sub-item">
+            <strong>Moodify — AI-Powered Music Recommendation Platform (2024)</strong>
+            <p>Integrated Spotify Web API to process user listening data; developed an NLP-based mood classification pipeline converting free-text mood descriptions into personalized playlist recommendations; designed Figma UI and React frontend.</p>
+          </div>
+          <div class="resume-sub-item">
+            <strong>Weather & Flight Delay Prediction — Data Analytics & ML</strong>
+            <p>Analyzed flight and weather datasets (visibility, precipitation, wind speed); conducted end-to-end exploratory data analysis and feature engineering with Pandas/NumPy; built delay classification model.</p>
+          </div>
+          <div class="resume-sub-item">
+            <strong>Sales Analytics Dashboard — Business Intelligence & Power BI</strong>
+            <p>Transformed sales data in Excel/SQL; engineered dynamic KPI cards and drill-down filters in Power BI to evaluate regional revenue and purchasing behavior.</p>
+          </div>
+        </div>
+        <div class="resume-sheet-section">
+          <h4>TECHNICAL SKILLS</h4>
+          <p><strong>Languages:</strong> Python, C++, SQL | <strong>Data Science:</strong> Pandas, NumPy, Matplotlib | <strong>Databases:</strong> MySQL, SQLite | <strong>Web:</strong> HTML, CSS, React | <strong>Tools:</strong> Power BI, Git, GitHub, VS Code, Google Colab | <strong>Design:</strong> Canva, Figma</p>
+        </div>
+        <div class="resume-sheet-section">
+          <h4>EDUCATION</h4>
+          <p><strong>B.Tech — CSE (Data Science)</strong>, SRM Institute of Science and Technology, Chennai (2024–2028, CGPA: 8.85)</p>
+          <p>Class XII & X: CBSE, St. Andrews Scots Sr. Sec. School</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

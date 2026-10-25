@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — Raina Vashishth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --text-dark: #1f2937;
+      --text-muted: #4b5563;
+      --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-dark);
+      background: #f9fafb;
+      line-height: 1.5;
+      padding: 2.5rem 1rem;
+    }
+    .resume-page {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border);
+    }
+    .header {
+      text-align: center;
+      border-bottom: 2px solid #6b21a8;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .header h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #111827;
+      margin-bottom: 0.25rem;
+    }
+    .header .role {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .header .contacts {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .header .contacts a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .header .contacts a:hover {
+      text-decoration: underline;
+      color: var(--primary);
+    }
+    .section {
+      margin-bottom: 1.75rem;
+    }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: #581c87;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.85rem;
+      text-transform: uppercase;
+    }
+    p, li {
+      font-size: 0.92rem;
+      color: #374151;
+    }
+    ul {
+      list-style-position: inside;
+      margin-left: 0.5rem;
+      margin-top: 0.35rem;
+    }
+    li {
+      margin-bottom: 0.35rem;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 0.98rem;
+      color: #111827;
+      margin-top: 0.75rem;
+    }
+    .item-sub {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 0.88rem;
+      margin-bottom: 0.35rem;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0.4rem 1rem;
+      font-size: 0.9rem;
+    }
+    .skills-grid strong {
+      color: #111827;
+    }
+    .print-bar {
+      max-width: 850px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn-print {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-back {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .resume-page { box-shadow: none; border: none; padding: 1.5rem; }
+      .print-bar { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-bar">
+    <a href="index.html" class="btn-back">← Back to Portfolio</a>
+    <button class="btn-print" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <div class="resume-page">
+    <div class="header">
+      <h1>RAINA VASHISHTH</h1>
+      <div class="role">Aspiring Data Analyst · Data Science & AI/ML</div>
+      <div class="contacts">
+        rainavash92@gmail.com &nbsp;|&nbsp; 
+        <a href="https://linkedin.com/in/rainavashishth" target="_blank">linkedin.com/in/rainavashishth</a> &nbsp;|&nbsp; 
+        <a href="https://github.com/RainaVashishth" target="_blank">github.com/RainaVashishth</a> &nbsp;|&nbsp; 
+        Delhi & Chennai
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">PROFESSIONAL SUMMARY</div>
+      <p>Aspiring Data Analyst and Data Science/AI-ML professional with hands-on experience in Python, SQL, Pandas, NumPy, and data visualization using Matplotlib. Strong foundation in programming and data handling, with leadership experience as Creative Co-Lead at the CSI Technical Society. Creative, collaborative, and problem-solving oriented, with experience leading a creative team and contributing to the organization of a national-level hackathon.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">PROJECTS</div>
+      <div>
+        <div class="item-header">
+          <span>Moodify — AI-Powered Music Recommendation Platform</span>
+          <span>2024</span>
+        </div>
+        <div class="item-sub">Python · NLP · Spotify Web API · React.js · Figma</div>
+        <ul>
+          <li>Integrated the Spotify Web API to process user listening data and generate personalized music recommendations and playlists.</li>
+          <li>Developed an NLP-based mood classification pipeline that converts free-text mood descriptions into personalized playlist recommendations.</li>
+          <li>Designed the mood-board UI in Figma and developed a responsive React frontend for an interactive music discovery experience.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top: 1rem;">
+        <div class="item-header">
+          <span>Weather & Flight Delay Prediction — Data Analytics & Machine Learning</span>
+          <span>2024</span>
+        </div>
+        <div class="item-sub">Python · Pandas · NumPy · Matplotlib · Scikit-Learn</div>
+        <ul>
+          <li>Analyzed historical flight and weather data to identify the impact of precipitation, visibility, wind speed, and temperature on flight delays.</li>
+          <li>Performed data cleaning, exploratory data analysis, and feature engineering using Python, Pandas, NumPy, and Matplotlib.</li>
+          <li>Built a machine-learning classification model to predict flight delays and visualized delay patterns across airlines, airports, weather conditions, and time periods.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top: 1rem;">
+        <div class="item-header">
+          <span>Sales Analytics Dashboard — Business Intelligence & Data Visualization</span>
+          <span>2024</span>
+        </div>
+        <div class="item-sub">Power BI · SQL · Microsoft Excel · DAX</div>
+        <ul>
+          <li>Analyzed sales data to identify revenue trends, top-performing products, regional performance, and customer purchasing patterns.</li>
+          <li>Performed data cleaning and transformation using Excel/SQL and developed interactive visualizations for business performance analysis.</li>
+          <li>Built an interactive Power BI dashboard with KPI cards, filters, and drill-downs to support data-driven sales and performance insights.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">TECHNICAL SKILLS</div>
+      <div class="skills-grid">
+        <strong>Languages:</strong><span>Python, C++, SQL</span>
+        <strong>Data Science:</strong><span>Pandas, NumPy, Matplotlib</span>
+        <strong>Databases:</strong><span>MySQL, SQLite</span>
+        <strong>Web:</strong><span>HTML, CSS, React</span>
+        <strong>Tools:</strong><span>Power BI, Git, GitHub, Google Colab, VS Code</span>
+        <strong>Design:</strong><span>Canva, Figma</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">LEADERSHIP & EXPERIENCE</div>
+      <div>
+        <div class="item-header">
+          <span>Creative Co-Lead — CSI Technical Society</span>
+          <span>Dec 2025 – Present</span>
+        </div>
+        <ul>
+          <li>Lead the creative team and coordinate design-related activities for the technical society.</li>
+          <li>Design posters and promotional creatives for college events using Canva.</li>
+          <li>Contribute to planning and execution of society events and initiatives.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top: 0.75rem;">
+        <div class="item-header">
+          <span>Core Team Member — Techstasy National-Level Hackathon</span>
+          <span>2026</span>
+        </div>
+        <ul>
+          <li>Contributed as a core team member in organizing a national-level hackathon with approximately 200 participants.</li>
+          <li>Designed promotional posters and event creatives.</li>
+          <li>Supported event execution through volunteering and on-ground coordination.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">EDUCATION</div>
+      <div>
+        <div class="item-header">
+          <span>B.Tech — Computer Science & Engineering (Data Science)</span>
+          <span>2024 – 2028</span>
+        </div>
+        <div class="item-sub">SRM Institute of Science and Technology, Chennai</div>
+        <p style="font-weight: 600;">Currently in 3rd Year, 5th Semester &nbsp;·&nbsp; CGPA: 8.85</p>
+        <p style="color: #6b7280; font-size: 0.85rem; margin-top: 0.25rem;">Class XII & Class X — CBSE, St. Andrews Scots Sr. Sec. School, Delhi</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">CERTIFICATIONS & ACHIEVEMENTS</div>
+      <p><strong>Certifications:</strong> Elements of AI &nbsp;·&nbsp; DSA in C++ (Udemy)</p>
+      <p><strong>Languages:</strong> English (Fluent) &nbsp;·&nbsp; Hindi (Fluent) &nbsp;·&nbsp; Japanese (N5)</p>
+      <p><strong>Achievements & Interests:</strong> 2nd Runner-Up — Painting Competition &nbsp;·&nbsp; Dancing</p>
+    </div>
+  </div>
+</body>
+</html>
