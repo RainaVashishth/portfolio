@@ -4,23 +4,23 @@
    ========================================================================== */
 
 :root {
-  --bg-dark: #090a0f;
-  --bg-surface: #11131a;
-  --bg-surface-elevated: #161922;
-  --bg-surface-subtle: rgba(255, 255, 255, 0.02);
+  --bg-dark: #0c0b16;
+  --bg-surface: rgba(22, 20, 38, 0.75);
+  --bg-surface-elevated: rgba(29, 26, 50, 0.88);
+  --bg-surface-subtle: rgba(168, 85, 247, 0.08);
   
   --purple-primary: #9333ea;
   --purple-accent: #a855f7;
   --purple-light: #c084fc;
-  --purple-subtle: rgba(168, 85, 247, 0.12);
-  --purple-border: rgba(168, 85, 247, 0.25);
+  --purple-subtle: rgba(168, 85, 247, 0.16);
+  --purple-border: rgba(168, 85, 247, 0.32);
   
   --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-faint: #64748b;
+  --text-muted: #a3a9bf;
+  --text-faint: #6c728c;
   
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(255, 255, 255, 0.16);
+  --border-subtle: rgba(168, 85, 247, 0.18);
+  --border-hover: rgba(168, 85, 247, 0.42);
 
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -45,7 +45,14 @@ html {
 }
 
 body {
-  background-color: var(--bg-dark);
+  background-color: #0c0b16;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(147, 51, 234, 0.24) 0%, transparent 45%),
+    radial-gradient(circle at 85% 25%, rgba(168, 85, 247, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 55%, rgba(126, 34, 206, 0.18) 0%, transparent 55%),
+    radial-gradient(circle at 80% 85%, rgba(168, 85, 247, 0.22) 0%, transparent 50%),
+    radial-gradient(circle at 20% 95%, rgba(147, 51, 234, 0.2) 0%, transparent 45%);
+  background-attachment: fixed;
   color: var(--text-main);
   font-family: var(--font-sans);
   line-height: 1.6;
@@ -55,29 +62,59 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Background Atmosphere */
-.ambient-glow {
-  position: absolute;
+/* Atmospheric Purple Mist Layers */
+.purple-mist {
+  position: fixed;
   border-radius: 50%;
-  filter: blur(160px);
+  filter: blur(130px);
   pointer-events: none;
   z-index: 0;
+  opacity: 0.65;
 }
 
-.glow-top {
-  top: -120px;
-  right: -80px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(147, 51, 234, 0.18) 0%, transparent 70%);
-}
-
-.glow-bottom {
-  bottom: 0;
-  left: -100px;
-  width: 550px;
+.mist-1 {
+  top: -5%;
+  left: 15%;
+  width: 650px;
   height: 550px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.32) 0%, rgba(147, 51, 234, 0.15) 50%, transparent 70%);
+  animation: floatMist1 22s ease-in-out infinite alternate;
+}
+
+.mist-2 {
+  top: 40%;
+  right: -8%;
+  width: 750px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.28) 0%, rgba(192, 132, 252, 0.12) 50%, transparent 70%);
+  animation: floatMist2 26s ease-in-out infinite alternate;
+}
+
+.mist-3 {
+  bottom: 0%;
+  left: -8%;
+  width: 700px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.28) 0%, rgba(126, 34, 206, 0.14) 50%, transparent 70%);
+  animation: floatMist3 20s ease-in-out infinite alternate;
+}
+
+@keyframes floatMist1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, 35px) scale(1.06); }
+  100% { transform: translate(-25px, 60px) scale(0.96); }
+}
+
+@keyframes floatMist2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-60px, -40px) scale(1.08); }
+  100% { transform: translate(-30px, 45px) scale(0.94); }
+}
+
+@keyframes floatMist3 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -45px) scale(1.05); }
+  100% { transform: translate(60px, 25px) scale(0.98); }
 }
 
 .container {
@@ -368,17 +405,19 @@ body {
 
 .portrait-card {
   background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--purple-border);
   border-radius: var(--radius-xl);
-  padding: 0.75rem;
+  padding: 0.85rem;
   width: 100%;
   max-width: 360px;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 35px rgba(168, 85, 247, 0.15);
   transition: var(--transition);
 }
 
 .portrait-card:hover {
-  border-color: var(--purple-border);
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55), 0 0 45px rgba(168, 85, 247, 0.25);
   transform: translateY(-4px);
 }
 
@@ -464,15 +503,18 @@ body {
   align-items: flex-start;
   gap: 1.15rem;
   background: var(--bg-surface);
+  backdrop-filter: blur(14px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 1.4rem;
   transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 .focus-card:hover {
   background: var(--bg-surface-elevated);
   border-color: var(--purple-border);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 0 25px rgba(168, 85, 247, 0.15);
   transform: translateX(4px);
 }
 
@@ -538,6 +580,7 @@ body {
 
 .project-row-card {
   background: var(--bg-surface);
+  backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   padding: 1.75rem;
@@ -546,11 +589,13 @@ body {
   gap: 2.25rem;
   align-items: center;
   transition: var(--transition);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), 0 0 25px rgba(168, 85, 247, 0.08);
 }
 
 .project-row-card:hover {
+  background: var(--bg-surface-elevated);
   border-color: var(--purple-border);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5), 0 0 40px rgba(168, 85, 247, 0.2);
   transform: translateY(-3px);
 }
 
@@ -860,7 +905,9 @@ body {
    ========================================================================== */
 .contact-card-wrapper {
   background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--purple-border);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 40px rgba(168, 85, 247, 0.12);
   border-radius: var(--radius-xl);
   padding: 3rem;
   display: grid;
