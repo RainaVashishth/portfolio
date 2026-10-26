@@ -3,73 +3,8 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Set current year in footer
-  const currentYearEl = document.getElementById('currentYear');
-  if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
-
-  // Initialize features
-  initMouseGlow();
-  initStatsCounter();
   initMobileMenu();
-  initRoleSwitcher();
-  initResumeModal();
 });
-
-/* -------------------------------------------------------------
- * MOUSE GLOW FOLLOWER
- * ------------------------------------------------------------- */
-function initMouseGlow() {
-  const glow = document.getElementById('cursorGlow');
-  if (!glow || window.innerWidth < 768) return;
-
-  window.addEventListener('mousemove', (e) => {
-    glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
-  });
-}
-
-/* -------------------------------------------------------------
- * STATS COUNTERS (Intersection Observer)
- * ------------------------------------------------------------- */
-function initStatsCounter() {
-  const counters = document.querySelectorAll('.counter');
-  let animated = false;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !animated) {
-        animated = true;
-        counters.forEach(counter => {
-          const target = parseFloat(counter.getAttribute('data-target'));
-          const decimals = parseInt(counter.getAttribute('data-decimal') || '0', 10);
-          const duration = 1800; // ms
-          const start = 0;
-          const startTime = performance.now();
-
-          function updateCounter(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            // Ease out cubic
-            const easeOut = 1 - Math.pow(1 - progress, 3);
-            const currentVal = start + (target - start) * easeOut;
-
-            counter.textContent = currentVal.toFixed(decimals);
-
-            if (progress < 1) {
-              requestAnimationFrame(updateCounter);
-            } else {
-              counter.textContent = target.toFixed(decimals);
-            }
-          }
-
-          requestAnimationFrame(updateCounter);
-        });
-      }
-    });
-  }, { threshold: 0.3 });
-
-  const statsStrip = document.querySelector('.stats-strip');
-  if (statsStrip) observer.observe(statsStrip);
-}
 
 /* -------------------------------------------------------------
  * MOBILE NAVIGATION MENU
@@ -92,59 +27,35 @@ function initMobileMenu() {
 }
 
 /* -------------------------------------------------------------
- * DYNAMIC ROLE TITLE CYCLER
- * ------------------------------------------------------------- */
-function initRoleSwitcher() {
-  const roleEl = document.getElementById('dynamicRole');
-  if (!roleEl) return;
-
-  const roles = ["DATA ANALYST", "AI / ML SPECIALIST", "BUSINESS ANALYST", "CREATIVE TECH"];
-  let index = 0;
-
-  setInterval(() => {
-    index = (index + 1) % roles.length;
-    roleEl.style.opacity = '0';
-    roleEl.style.transform = 'translateY(10px)';
-    roleEl.style.transition = 'all 0.3s ease';
-
-    setTimeout(() => {
-      roleEl.textContent = roles[index];
-      roleEl.style.opacity = '1';
-      roleEl.style.transform = 'translateY(0)';
-    }, 300);
-  }, 4000);
-}
-
-/* -------------------------------------------------------------
  * PROJECT MODAL DETAILS
  * ------------------------------------------------------------- */
 const projectsData = {
   moodify: {
-    title: "Moodify — AI-Powered Music Recommendation Platform",
+    title: "Moodify — AI-Powered Music Discovery",
     year: "2024",
-    category: "AI, NLP & Full-Stack Web Development",
+    category: "Natural Language Processing & Web Development",
     img: "assets/project-moodify.png",
-    overview: "Moodify is an intelligent music discovery platform that reads a user's emotional state through natural language and automatically generates personalized Spotify playlists.",
+    overview: "Moodify connects free-form user mood descriptions with the Spotify catalog through an NLP classification pipeline, producing tailored playlist recommendations.",
     highlights: [
-      "Integrated Spotify Web API with OAuth authorization to retrieve user listening history, top genres, and acoustic attributes (valence, danceability, energy).",
-      "Built an NLP-based sentiment and mood classification pipeline that interprets complex free-text descriptions (e.g., 'chill rainy evening thoughts') and maps them into audio feature clusters.",
-      "Designed an aesthetic, dark-mode mood-board UI in Figma and engineered a responsive, high-performance React frontend.",
-      "Included dynamic playback previews, audio wave visualizers, and direct playlist export to users' personal Spotify accounts."
+      "Integrated Spotify Web API with OAuth 2.0 authorization to access user listening history and track audio features (valence, tempo, acousticness, energy).",
+      "Engineered an NLP text-processing pipeline that parses subjective mood descriptions and clusters them into acoustic attribute targets.",
+      "Built a responsive React interface with interactive audio preview players, album artwork displays, and 1-click Spotify playlist export.",
+      "Prototyped the end-to-end design system and user flows in Figma."
     ],
-    techStack: ["Python", "NLP", "Spotify Web API", "React.js", "Figma", "Tailwind CSS"],
+    techStack: ["Python", "NLP", "Spotify Web API", "React.js", "Figma", "REST API"],
     githubUrl: "https://github.com/RainaVashishth"
   },
   flight: {
-    title: "Weather & Flight Delay Prediction System",
+    title: "Weather & Flight Delay Prediction Pipeline",
     year: "2024",
-    category: "Data Analytics, Machine Learning & Feature Engineering",
+    category: "Machine Learning, Analytics & EDA",
     img: "assets/project-flight.png",
-    overview: "A comprehensive machine learning and exploratory data analysis initiative that analyzes the correlation between severe weather phenomena and commercial aviation delays.",
+    overview: "A machine learning and data science investigation analyzing the statistical impact of adverse weather events on commercial flight delays.",
     highlights: [
-      "Aggregated and scrubbed large datasets encompassing historical flight logs, airport hubs, and NOAA weather measurements (precipitation, crosswinds, visibility, pressure).",
-      "Conducted extensive Exploratory Data Analysis (EDA) in Python using Pandas, NumPy, and Matplotlib to isolate high-variance delay triggers.",
-      "Engineered delay probability indices and trained supervised classification models (Logistic Regression, Random Forest) to predict delay risks.",
-      "Visualized delay distributions across peak hours, seasonal storms, and high-traffic airports with clear diagnostic plots."
+      "Aggregated and cleaned large-scale historical flight records and meteorological measurements (visibility, precipitation, wind speed, pressure).",
+      "Conducted extensive Exploratory Data Analysis (EDA) in Python using Pandas, NumPy, and Matplotlib to identify high-variance delay triggers.",
+      "Engineered delay probability indices and trained supervised classification models to predict delay likelihood across hub airports and carriers.",
+      "Generated analytical distribution plots illustrating delay risk across seasonal storm patterns and peak flight hours."
     ],
     techStack: ["Python", "Pandas", "NumPy", "Matplotlib", "Scikit-Learn", "Jupyter Notebook"],
     githubUrl: "https://github.com/RainaVashishth"
@@ -152,16 +63,16 @@ const projectsData = {
   sales: {
     title: "Sales Analytics & Business Intelligence Dashboard",
     year: "2024",
-    category: "Business Intelligence, SQL & Data Visualization",
+    category: "Business Intelligence, SQL & Data Modeling",
     img: "assets/project-sales.png",
-    overview: "An enterprise-grade interactive Business Intelligence dashboard designed to deliver actionable revenue intelligence and customer trend analytics for executive decision-makers.",
+    overview: "An enterprise-grade interactive Business Intelligence suite built to provide commercial visibility into revenue growth, product margins, and customer purchasing behaviors.",
     highlights: [
-      "Extracted, sanitized, and modeled multi-thousand transaction datasets from Excel and relational SQL databases.",
-      "Designed dynamic Power BI dashboard pages with custom DAX calculations, profit margin tracking, and revenue growth benchmarks.",
-      "Implemented multi-dimensional slicers, drill-downs by region, product categories, and customer cohorts.",
-      "Streamlined data reporting workflows to identify high-margin SKUs and regional revenue drop-offs."
+      "Extracted, sanitized, and transformed multi-thousand transaction datasets using Excel and relational SQL queries.",
+      "Modeled relational schemas and wrote custom DAX measures for profit margin tracking, monthly growth rates, and regional revenue benchmarks.",
+      "Built interactive Power BI dashboards with multi-level drill-downs by region, product category, and customer cohorts.",
+      "Identified key regional revenue drops and top-performing SKU clusters to support data-backed business decisions."
     ],
-    techStack: ["Power BI", "SQL", "DAX", "Microsoft Excel", "Data Warehousing"],
+    techStack: ["Power BI", "SQL", "Microsoft Excel", "DAX", "Data Modeling"],
     githubUrl: "https://github.com/RainaVashishth"
   }
 };
@@ -174,33 +85,33 @@ function openProjectModal(key) {
   const content = document.getElementById('modalContent');
 
   content.innerHTML = `
-    <div style="margin-bottom: 1.5rem;">
-      <span class="project-year-badge">${p.year} • ${p.category}</span>
-      <h2 style="font-family: var(--font-display); font-size: 2.2rem; color: #fff; margin-top: 0.5rem; letter-spacing: 0.04em;">${p.title}</h2>
+    <div style="margin-bottom: 1.25rem;">
+      <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--purple-light); background: var(--purple-subtle); padding: 0.2rem 0.6rem; border-radius: 4px;">${p.year} · ${p.category}</span>
+      <h2 style="font-size: 1.6rem; font-weight: 700; color: #fff; margin-top: 0.5rem; letter-spacing: -0.01em;">${p.title}</h2>
     </div>
 
-    <div style="border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.5rem; border: 1px solid var(--border-subtle); max-height: 280px;">
+    <div style="border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.25rem; border: 1px solid var(--border-subtle); max-height: 260px;">
       <img src="${p.img}" alt="${p.title}" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
 
-    <p style="color: var(--purple-pastel); font-size: 1rem; margin-bottom: 1.25rem; font-weight: 500; line-height: 1.6;">${p.overview}</p>
+    <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.25rem; line-height: 1.6;">${p.overview}</p>
 
-    <h4 style="font-family: var(--font-display); font-size: 1.3rem; color: #fff; letter-spacing: 0.04em; margin-bottom: 0.75rem;">KEY CONTRIBUTIONS & METHODOLOGY</h4>
-    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.75rem;">
-      ${p.highlights.map(h => `<li style="font-size: 0.92rem; color: var(--text-muted); position: relative; padding-left: 1.25rem;"><span style="position: absolute; left: 0; color: var(--purple-light);">▹</span> ${h}</li>`).join('')}
+    <h4 style="font-size: 0.9rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;">Key Highlights & Methodology</h4>
+    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
+      ${p.highlights.map(h => `<li style="font-size: 0.88rem; color: var(--text-muted); position: relative; padding-left: 1.15rem; line-height: 1.55;"><span style="position: absolute; left: 0; color: var(--purple-light);">•</span> ${h}</li>`).join('')}
     </ul>
 
-    <h4 style="font-family: var(--font-display); font-size: 1.3rem; color: #fff; letter-spacing: 0.04em; margin-bottom: 0.75rem;">TECHNOLOGY STACK</h4>
-    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
-      ${p.techStack.map(t => `<span class="tech-tag" style="background: rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.3); color: #fff;">${t}</span>`).join('')}
+    <h4 style="font-size: 0.9rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem;">Tools & Libraries</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.75rem;">
+      ${p.techStack.map(t => `<span style="font-family: var(--font-mono); font-size: 0.72rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle); color: #cbd5e1; padding: 0.25rem 0.6rem; border-radius: 4px;">${t}</span>`).join('')}
     </div>
 
-    <div style="display: flex; gap: 1rem; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
-      <a href="${p.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-purple">
+    <div style="display: flex; gap: 0.75rem; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
+      <a href="${p.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-purple">
         <i data-lucide="github"></i>
         <span>View on GitHub</span>
       </a>
-      <button class="btn btn-outline" onclick="closeProjectModalDirect()">Close</button>
+      <button class="btn btn-sm btn-outline" onclick="closeProjectModalDirect()">Close</button>
     </div>
   `;
 
@@ -222,33 +133,6 @@ function closeProjectModalDirect() {
 }
 
 /* -------------------------------------------------------------
- * RESUME MODAL
- * ------------------------------------------------------------- */
-function initResumeModal() {
-  const openBtn = document.getElementById('openResumeBtn');
-  if (openBtn) {
-    openBtn.addEventListener('click', () => {
-      const modal = document.getElementById('resumeModal');
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      lucide.createIcons();
-    });
-  }
-}
-
-function closeResumeModal(event) {
-  if (event.target === document.getElementById('resumeModal')) {
-    closeResumeModalDirect();
-  }
-}
-
-function closeResumeModalDirect() {
-  const modal = document.getElementById('resumeModal');
-  if (modal) modal.classList.remove('active');
-  document.body.style.overflow = 'auto';
-}
-
-/* -------------------------------------------------------------
  * COPY EMAIL TO CLIPBOARD
  * ------------------------------------------------------------- */
 function copyEmailToClipboard() {
@@ -259,18 +143,14 @@ function copyEmailToClipboard() {
     
     if (btnText && copyPill) {
       const originalText = btnText.textContent;
-      btnText.textContent = "Copied! ✨";
-      copyPill.style.background = "#a855f7";
-      copyPill.style.color = "#0b0b12";
+      btnText.textContent = "Copied!";
+      copyPill.style.background = "#9333ea";
 
       setTimeout(() => {
         btnText.textContent = originalText;
         copyPill.style.background = "";
-        copyPill.style.color = "";
-      }, 2500);
+      }, 2000);
     }
-  }).catch(err => {
-    console.error('Failed to copy: ', err);
   });
 }
 
@@ -285,17 +165,13 @@ function handleFormSubmit(event) {
   const content = document.getElementById('msgContent').value;
   const feedback = document.getElementById('formFeedback');
 
-  // Trigger mailto link for direct sending
   const mailtoUrl = `mailto:rainavash92@gmail.com?subject=${encodeURIComponent(subject + " — from " + name)}&body=${encodeURIComponent(content + "\n\nFrom: " + name + " (" + email + ")")}`;
   
   feedback.classList.remove('hidden');
   feedback.className = 'form-feedback success';
-  feedback.innerHTML = `
-    <strong>✨ Thank you, ${name}!</strong><br>
-    Your email draft has been generated. Opening your mail client now...
-  `;
+  feedback.innerHTML = `Drafting email to Raina... Opening your email client.`;
 
   setTimeout(() => {
     window.location.href = mailtoUrl;
-  }, 800);
+  }, 600);
 }
