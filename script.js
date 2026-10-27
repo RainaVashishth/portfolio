@@ -1,5 +1,5 @@
 /**
- * RAINA VASHISHTH PORTFOLIO — INTERACTIVE ENGINE
+ * RAINA VASHISHTH PORTFOLIO — MINIMAL INTERACTIVE ENGINE
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,18 +10,32 @@ document.addEventListener('DOMContentLoaded', () => {
  * MOBILE NAVIGATION MENU
  * ------------------------------------------------------------- */
 function initMobileMenu() {
-  const menuBtn = document.getElementById('mobileMenuBtn');
-  const navLinks = document.getElementById('navLinks');
+  const toggleBtn = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('navMenu');
 
-  if (!menuBtn || !navLinks) return;
+  if (!toggleBtn || !navMenu) return;
 
-  menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+  toggleBtn.addEventListener('click', () => {
+    const isVisible = navMenu.style.display === 'flex';
+    navMenu.style.display = isVisible ? 'none' : 'flex';
+    if (!isVisible) {
+      navMenu.style.flexDirection = 'column';
+      navMenu.style.position = 'absolute';
+      navMenu.style.top = '64px';
+      navMenu.style.left = '0';
+      navMenu.style.width = '100%';
+      navMenu.style.background = '#0d0f17';
+      navMenu.style.padding = '1.5rem';
+      navMenu.style.borderBottom = '1px solid rgba(255, 255, 255, 0.08)';
+      navMenu.style.gap = '1rem';
+    }
   });
 
-  navLinks.querySelectorAll('.nav-link').forEach(link => {
+  navMenu.querySelectorAll('.nav-item').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
+      if (window.innerWidth <= 768) {
+        navMenu.style.display = 'none';
+      }
     });
   });
 }
@@ -86,32 +100,32 @@ function openProjectModal(key) {
 
   content.innerHTML = `
     <div style="margin-bottom: 1.25rem;">
-      <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--purple-light); background: var(--purple-subtle); padding: 0.2rem 0.6rem; border-radius: 4px;">${p.year} · ${p.category}</span>
-      <h2 style="font-size: 1.6rem; font-weight: 700; color: #fff; margin-top: 0.5rem; letter-spacing: -0.01em;">${p.title}</h2>
+      <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-purple-light); background: var(--accent-purple-dim); padding: 0.2rem 0.6rem; border-radius: 4px;">${p.year} · ${p.category}</span>
+      <h2 style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-top: 0.5rem; letter-spacing: -0.01em;">${p.title}</h2>
     </div>
 
-    <div style="border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.25rem; border: 1px solid var(--border-subtle); max-height: 260px;">
+    <div style="border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.25rem; border: 1px solid var(--border-light); max-height: 250px;">
       <img src="${p.img}" alt="${p.title}" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
 
-    <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.25rem; line-height: 1.6;">${p.overview}</p>
+    <p style="color: var(--text-body); font-size: 0.92rem; margin-bottom: 1.25rem; line-height: 1.6;">${p.overview}</p>
 
-    <h4 style="font-size: 0.9rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;">Key Highlights & Methodology</h4>
-    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
-      ${p.highlights.map(h => `<li style="font-size: 0.88rem; color: var(--text-muted); position: relative; padding-left: 1.15rem; line-height: 1.55;"><span style="position: absolute; left: 0; color: var(--purple-light);">•</span> ${h}</li>`).join('')}
+    <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem;">Key Highlights & Methodology</h4>
+    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.25rem;">
+      ${p.highlights.map(h => `<li style="font-size: 0.85rem; color: var(--text-body); position: relative; padding-left: 1rem; line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--accent-purple-light);">•</span> ${h}</li>`).join('')}
     </ul>
 
-    <h4 style="font-size: 0.9rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem;">Tools & Libraries</h4>
-    <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.75rem;">
-      ${p.techStack.map(t => `<span style="font-family: var(--font-mono); font-size: 0.72rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle); color: #cbd5e1; padding: 0.25rem 0.6rem; border-radius: 4px;">${t}</span>`).join('')}
+    <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Tools & Libraries</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem;">
+      ${p.techStack.map(t => `<span style="font-family: var(--font-mono); font-size: 0.72rem; background: var(--bg-subtle); border: 1px solid var(--border-light); color: #cbd5e1; padding: 0.2rem 0.55rem; border-radius: 4px;">${t}</span>`).join('')}
     </div>
 
-    <div style="display: flex; gap: 0.75rem; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
-      <a href="${p.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-purple">
+    <div style="display: flex; gap: 0.75rem; align-items: center; border-top: 1px solid var(--border-light); padding-top: 1.25rem;">
+      <a href="${p.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
         <i data-lucide="github"></i>
         <span>View on GitHub</span>
       </a>
-      <button class="btn btn-sm btn-outline" onclick="closeProjectModalDirect()">Close</button>
+      <button class="btn btn-sm btn-secondary" onclick="closeProjectModalDirect()">Close</button>
     </div>
   `;
 
@@ -139,39 +153,19 @@ function copyEmailToClipboard() {
   const email = "rainavash92@gmail.com";
   navigator.clipboard.writeText(email).then(() => {
     const btnText = document.getElementById('copyBtnText');
-    const copyPill = document.getElementById('copyEmailBtn');
+    const copyBtn = document.getElementById('copyEmailBtn');
     
-    if (btnText && copyPill) {
+    if (btnText && copyBtn) {
       const originalText = btnText.textContent;
       btnText.textContent = "Copied!";
-      copyPill.style.background = "#9333ea";
+      copyBtn.style.background = "#8b5cf6";
+      copyBtn.style.color = "#ffffff";
 
       setTimeout(() => {
         btnText.textContent = originalText;
-        copyPill.style.background = "";
+        copyBtn.style.background = "";
+        copyBtn.style.color = "";
       }, 2000);
     }
   });
-}
-
-/* -------------------------------------------------------------
- * CONTACT FORM SUBMISSION
- * ------------------------------------------------------------- */
-function handleFormSubmit(event) {
-  event.preventDefault();
-  const name = document.getElementById('senderName').value;
-  const email = document.getElementById('senderEmail').value;
-  const subject = document.getElementById('msgSubject').value;
-  const content = document.getElementById('msgContent').value;
-  const feedback = document.getElementById('formFeedback');
-
-  const mailtoUrl = `mailto:rainavash92@gmail.com?subject=${encodeURIComponent(subject + " — from " + name)}&body=${encodeURIComponent(content + "\n\nFrom: " + name + " (" + email + ")")}`;
-  
-  feedback.classList.remove('hidden');
-  feedback.className = 'form-feedback success';
-  feedback.innerHTML = `Drafting email to Raina... Opening your email client.`;
-
-  setTimeout(() => {
-    window.location.href = mailtoUrl;
-  }, 600);
 }
